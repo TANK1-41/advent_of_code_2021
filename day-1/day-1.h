@@ -3,8 +3,8 @@
 //
 
 #pragma once
-#define ADVENT_OF_CODE_2021_DAY_1_H
 #include "fstream"
+#include "vector"
 /*
  * function gets all numbers greater than the original at the start of the list
  * */
@@ -18,11 +18,27 @@ void getGreater(){
     }
 
     indata >> num;
-    
+    std::vector<int> fileNumbers;
     while ( !indata.eof() ) { // keep reading until end-of-file
-        std::cout << "The next number is " << num << std::endl;
-        indata >> num; // sets EOF flag if no value found
+//        std::cout << "The next number is " << num << std::endl;
+//        indata >> num; // sets EOF flag if no value found
+        fileNumbers.push_back(num);
+        indata>>num;
     }
+    std::cout<<"max size: "<<fileNumbers.size()<<std::endl;
+    int increased{0};
+    for(size_t i{0};i<fileNumbers.size()-3;i++)
+    {
+        std::cout<<i<<std::endl;
+        int firstIncrment = fileNumbers[i] + fileNumbers[i+1] + fileNumbers[i+2];
+                int secondIncrment = fileNumbers[i+1] + fileNumbers[i+2] + fileNumbers[i+3];
+                if(firstIncrment < secondIncrment)
+                {
+                    increased++;
+                }
+
+    }
+    std::cout<<increased<<std::endl;
     indata.close();
     std::cout << "End-of-file reached.." << std::endl;
 }
