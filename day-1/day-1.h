@@ -8,7 +8,7 @@
 /*
  * function gets all numbers greater than the original at the start of the list
  * */
-void getGreater(){
+void day1(){
     std::ifstream indata; // indata is like cin
     int num; // variable for input value
     indata.open("day-1.txt"); // opens the file
